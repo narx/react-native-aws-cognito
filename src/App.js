@@ -123,15 +123,26 @@ class App extends Component {
 const AppWithNavigationState = connect(mapStateToProps)(App);
 
 class AppRoot extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      readyFlag: false,
+    };
+  }
 
   async componentWillMount() {
     await Expo.Font.loadAsync({
       'Roboto': require('native-base/Fonts/Roboto.ttf'),
       'Roboto_medium': require('native-base/Fonts/Roboto_medium.ttf'),
+      'Ionicons': require('@expo/vector-icons/fonts/Ionicons.ttf'),
     });
+    this.setState({ readyFlag: true });
   }
 
   render() {
+    if (!this.state.readyFlag) {
+      return <Expo.AppLoading />;
+    }
     return (
       <Provider store={store}>
         <PersistGate loading={null} persistor={persister}>
