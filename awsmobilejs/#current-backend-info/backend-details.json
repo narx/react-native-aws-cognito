@@ -1,0 +1,100 @@
+{
+	"name": "hckim-react-test",
+	"projectId": "ec12fcb8-a028-4d07-aa1c-7bff3173ba4a",
+	"region": "ap-northeast-2",
+	"state": "NORMAL",
+	"createdDate": "2018-03-06T04:46:23.662Z",
+	"lastUpdatedDate": "2018-03-06T05:58:43.007Z",
+	"consoleUrl": "https://console.aws.amazon.com/mobilehub/home#/ec12fcb8-a028-4d07-aa1c-7bff3173ba4a/build",
+	"resources": [
+		{
+			"type": "AWS::Pinpoint::AnalyticsApplication",
+			"name": "hckimreacttest_MobileHub",
+			"arn": "0f15b186624f438987a86e2ca9e642a7",
+			"feature": "analytics",
+			"attributes": {
+				"lastUpdateRequestID": "5264721c-20f9-11e8-9798-e5c594fcd959"
+			}
+		},
+		{
+			"type": "AWS::IAM::Policy",
+			"name": "hckimreacttest_mobileanalytics_MOBILEHUB_510907955",
+			"arn": null,
+			"feature": "analytics",
+			"attributes": {
+				"authType": "authenticated",
+				"lastUpdateRequestID": "6a542dac-2103-11e8-a5cf-83281952b9d0",
+				"role": "hckimreacttest_auth_MOBILEHUB_510907955"
+			}
+		},
+		{
+			"type": "AWS::Cognito::IdentityPool",
+			"name": "hckimreacttest_MOBILEHUB_510907955",
+			"arn": "ap-northeast-2:d0e4a4f8-c52c-49ac-8239-51af34542b0d",
+			"feature": "user-signin",
+			"attributes": {
+				"lastUpdateRequestID": "6a542dac-2103-11e8-a5cf-83281952b9d0",
+				"poolid": "ap-northeast-2:d0e4a4f8-c52c-49ac-8239-51af34542b0d",
+				"roleARNs": "arn:aws:iam::911370048430:role/hckimreacttest_auth_MOBILEHUB_510907955"
+			}
+		},
+		{
+			"type": "AWS::IAM::Role",
+			"name": "hckimreacttest_smsverification_MOBILEHUB_510907955",
+			"arn": "arn:aws:iam::911370048430:role/service-role/hckimreacttest_smsverification_MOBILEHUB_510907955",
+			"feature": "user-signin",
+			"attributes": {
+				"lastUpdateRequestID": "62e148bd-2103-11e8-bb82-479c2c73f3db",
+				"user-pools-role-key": "user-pools-execution-role"
+			}
+		},
+		{
+			"type": "AWS::Cognito::UserPool",
+			"name": "hckimreacttest_userpool_MOBILEHUB_510907955",
+			"arn": "ap-northeast-2_4HwMfPzzw",
+			"feature": "user-signin",
+			"attributes": {
+				"alias-attributes": "[\"email\"]",
+				"lastUpdateRequestID": "62e148bd-2103-11e8-bb82-479c2c73f3db",
+				"mfa-configuration": "OFF",
+				"password-policy": "{\"minimumLength\":6,\"requireUppercase\":false,\"requireLowercase\":false,\"requireNumbers\":false,\"requireSymbols\":false}",
+				"region": "ap-northeast-2",
+				"user-pools-client-id": "4nr17brku4f079k87drbvm4pkn",
+				"user-pools-client-secret": "6j5kbg395v3ss5l76fv2jmvl88lcf99si252f6k4svk33d3k5sq",
+				"user-pools-id": "ap-northeast-2_4HwMfPzzw",
+				"user-pools-web-client-id": "6f1a865fo9b5e9j88hv2ir7mg0"
+			}
+		},
+		{
+			"type": "AWS::IAM::Role",
+			"name": "hckimreacttest_auth_MOBILEHUB_510907955",
+			"arn": "arn:aws:iam::911370048430:role/hckimreacttest_auth_MOBILEHUB_510907955",
+			"feature": "user-signin",
+			"attributes": {
+				"authType": "authenticated",
+				"lastUpdateRequestID": "6a542dac-2103-11e8-a5cf-83281952b9d0"
+			}
+		},
+		{
+			"type": "AWS::S3::Bucket",
+			"name": "hckimreacttest-deployments-mobilehub-510907955",
+			"arn": null,
+			"feature": "common",
+			"attributes": {
+				"region": "ap-northeast-2",
+				"s3-bucket-console-url": "https://s3.console.aws.amazon.com/s3/buckets/hckimreacttest-deployments-mobilehub-510907955"
+			}
+		},
+		{
+			"type": "AWS::CloudFormation::Stack",
+			"name": "Development",
+			"arn": null,
+			"feature": "cloud-api",
+			"attributes": {
+				"primary": "true",
+				"region": "ap-northeast-2",
+				"stateSummary": "NOT_YET_DEPLOYED"
+			}
+		}
+	]
+}

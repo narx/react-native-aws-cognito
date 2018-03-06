@@ -1,0 +1,19 @@
+{
+	"ProjectName": "hotch",
+	"ProjectPath": "/Users/hyeoncheolkim/git/hotch",
+	"InitializationTime": "",
+	"LastConfigurationTime": "2018-03-06-13-47-02",
+	"LastNPMInstallTime": "",
+	"FrontendLastBuildTime": "",
+	"LastPublishTime": "",
+	"BackendLastSyncTime": "2018-03-06-14-59-00",
+	"BackendLastBuildTime": "2018-03-06-13-50-14",
+	"BackendLastPushTime": "2018-03-06-13-50-39",
+	"BackendLastPushSuccessful": true,
+	"BackendProjectID": "ec12fcb8-a028-4d07-aa1c-7bff3173ba4a",
+	"BackendProjectName": "hckim-react-test",
+	"BackendProjectConsoleUrl": "https://console.aws.amazon.com/mobilehub/home#/ec12fcb8-a028-4d07-aa1c-7bff3173ba4a/build",
+	"BackendProjectCreationTime": "2018-03-06T04:46:23.662Z",
+	"BackendProjectLastUpdatedTime": "2018-03-06T05:58:43.007Z",
+	"Framework": "react-native"
+}
