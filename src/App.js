@@ -16,7 +16,7 @@ import thunk from 'redux-thunk';
 import {reducer as formReducer } from 'redux-form';
 import devTools from 'remote-redux-devtools';
 
-import { Root } from "native-base";
+import { Root, StyleProvider } from "native-base";
 
 import reducer from './reducers';
 import promise from './promise';
@@ -33,7 +33,9 @@ import SignUpConfirm from "./components/signUpConfirm";
 import Amplify from 'aws-amplify';
 import aws_exports from '../aws-exports';
 
-import { withAuthenticator, Authenticator } from 'aws-amplify-react-native';
+import getTheme from "./theme/components";
+import variables from "./theme/variables/commonColor";
+
 
 Amplify.configure(aws_exports);
 
@@ -121,11 +123,21 @@ class App extends Component {
 const AppWithNavigationState = connect(mapStateToProps)(App);
 
 class AppRoot extends React.Component {
+
+  async componentWillMount() {
+    await Expo.Font.loadAsync({
+      'Roboto': require('native-base/Fonts/Roboto.ttf'),
+      'Roboto_medium': require('native-base/Fonts/Roboto_medium.ttf'),
+    });
+  }
+
   render() {
     return (
       <Provider store={store}>
         <PersistGate loading={null} persistor={persister}>
+          <StyleProvider style={getTheme(variables)}>
           <AppWithNavigationState />
+          </StyleProvider>
         </PersistGate>
       </Provider>
     );
