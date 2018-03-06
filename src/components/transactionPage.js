@@ -25,7 +25,7 @@ class TransactionPage extends Component {
                 </Body>
                 <Right />
                 </Header>
-            <Content>
+            <Content style={{padding:40}}>
                 <Text>로그인 :</Text>
                 <Text>{this.props.name}</Text>
             </Content>

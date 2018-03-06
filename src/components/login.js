@@ -58,21 +58,8 @@ class Login extends Component {
         super(props);
         this.state = {
             email: "",
-            password: "",
-            currentUser: null
+            password: ""
         }
-    }
-
-    componentWillMount() {
-        Auth.currentAuthenticatedUser().then(user => {
-            this.setState({currentUser: user.username})
-        })
-    }
-
-    handleLogout = () => {
-        Auth.signOut().then(() => {
-            this.setState({currentUser: null});
-        })
     }
 
     handleSignUp = () => {
@@ -113,18 +100,17 @@ class Login extends Component {
             <View style={{flex: 1, justifyContent: "center", padding:30}}>
                 <Field name="email" component={this.renderInput} />
                 <Field name="password" component={this.renderInput} />
+
+                <View style={{flexDirection: 'row', marginTop:30, justifyContent: "space-between"}}>
+
                 <Button primary={true}
-                style={{alignSelf: "center", marginTop: 10 }}
                 onPress={this.props.handleSubmit(OnSubmit)} disabled={this.props.pristine || this.props.invalid || this.props.submitting}>
                 <Text>로그인</Text>
-                </Button>
-                <Button secondary={true} onPress={this.handleLogout}>
-                    <Text>로그아웃</Text>
                 </Button>
                 <Button secondary={true} onPress={this.handleSignUp}>
                     <Text>회원가입</Text>
                 </Button>
-                <Text>{this.state.currentUser}</Text>
+                </View>
             </View>
         </Container>
     )

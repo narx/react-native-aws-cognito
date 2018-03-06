@@ -29,7 +29,6 @@ import Login from "./components/login";
 import SignUp from "./components/signUp";
 import SignUpConfirm from "./components/signUpConfirm";
 
-
 import Amplify from 'aws-amplify';
 import aws_exports from '../aws-exports';
 
@@ -66,8 +65,6 @@ const persistConfig = {
   storage: AsyncStorage
 }
 
-const persistedReducer = persistReducer(persistConfig, reducer);
-
 const navInitialState = AppNavigator.router.getStateForAction(AppNavigator.router.getActionForPathAndParams('Login'));
 
 const navReducer = (state = navInitialState, action) => {
@@ -93,16 +90,14 @@ const enhancer = compose(
   }),
 );
 
+const persistedReducer = persistReducer(persistConfig, reducer);
+
 
 const combinedReducers = combineReducers({
     persist: persistedReducer,
     form: formReducer,
     nav: navReducer
 })
-
-const store = createStore(combinedReducers, enhancer);
-
-const persister = persistStore(store);
 
 class App extends Component {
   constructor(props) {
@@ -127,7 +122,9 @@ class AppRoot extends React.Component {
     super();
     this.state = {
       readyFlag: false,
-    };
+      store: createStore(combinedReducers, enhancer)
+    }
+    this.persistor = persistStore(this.state.store);
   }
 
   async componentWillMount() {
@@ -144,12 +141,12 @@ class AppRoot extends React.Component {
       return <Expo.AppLoading />;
     }
     return (
-      <Provider store={store}>
-        <PersistGate loading={null} persistor={persister}>
+      <Provider store={this.state.store}>
+        <PersistGate loading={null} persistor={this.persistor}>
           <StyleProvider style={getTheme(variables)}>
-          <AppWithNavigationState />
+            <AppWithNavigationState />
           </StyleProvider>
-        </PersistGate>
+          </PersistGate>
       </Provider>
     );
   }

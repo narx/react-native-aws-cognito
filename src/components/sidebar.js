@@ -15,13 +15,7 @@ const datas = [
         route: "PayrollPage",
         icon: "phone-portrait",
         bg: "#C5F442"
-    },
-    {
-        name: "Login",
-        route: "Login",
-        icon: "phone-portrait",
-        bg: "#C5F442"
-    },
+    }
 ];
 
 

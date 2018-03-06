@@ -5,7 +5,6 @@ import user from "./user";
 import list from "./list";
 
 export default combineReducers({
-  form: formReducer,
   drawer,
   user,
   list
