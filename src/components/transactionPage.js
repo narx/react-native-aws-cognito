@@ -39,7 +39,7 @@ class TransactionPage extends Component {
 
     render = () => (
         <Container>
-            <Header style={{backgroundColor: "#ef534e"}}>
+            <Header style={{backgroundColor: "#ef534e"}} noShadow={true}>
                 <Left>
                     <Button
                     transparent
