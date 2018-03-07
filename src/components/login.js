@@ -6,7 +6,7 @@ import { reduxForm, Field } from "redux-form";
 
 import { setUser } from "../actions/user";
 import { Auth } from 'aws-amplify';
-
+import {reset} from 'redux-form';
 
 
 const OnSubmit = (values, dispatch) => {
@@ -56,10 +56,6 @@ const validate = values => {
 class Login extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            email: "",
-            password: ""
-        }
     }
 
     handleSignUp = () => {
@@ -122,10 +118,10 @@ const LoginSwag = reduxForm(
         validate,
         onSubmitSuccess: (result, dispatch, props) => {
             dispatch(setUser(result));
-            props.navigation.navigate("Drawer");
+            dispatch(reset('login'));
+            props.navigation.navigate("TransactionPage")
         }
     }
 )(Login);
 
 export default LoginSwag
-//this.props.navigation.navigate("TransactionPage")
