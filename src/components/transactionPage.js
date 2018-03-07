@@ -53,8 +53,9 @@ class TransactionPage extends Component {
                 </Body>
                 <Right />
             </Header>
-            <View style={{backgroundColor: "#ef534e", height: 200}}>
-                
+            <View style={{backgroundColor: "#ef534e", height: 200, padding: 20, justifyContent: "center", alignItems: "center"}}>
+                <View style={{backgroundColor: "#f5f5f5", width:150, height: 150, borderRadius: 75}}>
+                </View>
             </View>
             <Content>
                 <FlatList
